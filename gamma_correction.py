@@ -1,16 +1,22 @@
-from __future__ import print_function
-from sys import argv
-import os.path
+import sys, os.path, cv2, numpy as np
 
 
-def gamma_correction(src_path, dst_path, a, b):
-    pass
+def gamma_correction(img, a, b):
+    pass  # insert your code here
+
+
+def main():
+    assert len(sys.argv) == 5
+    src_path, dst_path = sys.argv[1], sys.argv[2]
+    a, b = float(sys.argv[3]), float(sys.argv[4])
+
+    assert os.path.exists(src_path)
+    img = cv2.imread(src_path, cv2.IMREAD_GRAYSCALE)
+    assert img is not None
+
+    result = gamma_correction(img, a, b)
+    cv2.imwrite(dst_path, result)
 
 
 if __name__ == '__main__':
-    assert len(argv) == 5
-    assert os.path.exists(argv[1])
-    argv[3] = float(argv[3])
-    argv[4] = float(argv[4])
-
-    gamma_correction(*argv[1:])
+    main()
