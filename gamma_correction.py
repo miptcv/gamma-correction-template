@@ -1,7 +1,7 @@
 import sys, os.path, cv2, numpy as np
 
 
-def gamma_correction(img, a, b):
+def gamma_correction(img: np.ndarray, a: float, b: float) -> np.ndarray:
     pass  # insert your code here
 
 
